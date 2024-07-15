@@ -1,0 +1,33 @@
+import java.util.*;
+public class task2 {
+    public static void main(String[] args) {
+        int arr[],n,sum=0;
+        double avgper;
+        Scanner sub=new Scanner(System.in);
+        System.out.println("Enter the number of subjects.");
+        n=sub.nextInt();
+        arr=new int[n];
+        System.out.println("Enter the Marks obtained in subjects out of 100.");
+        for(int i=0;i<arr.length;i++)
+        {
+            arr[i]=sub.nextInt();
+            sum=sum+arr[i];
+        }
+        sub.close();
+        System.out.println("Total marks obtained are : "+sum);
+        avgper=sum/n;
+        System.out.println("Average percentage is :"+avgper);
+        if (avgper>=90)
+        System.out.println("Grade : A");
+        else if(avgper>=80) 
+        System.out.println("Grade : B");   
+        else if(avgper>=70)
+        System.out.println("Grade : C");
+        else if(avgper>=60)
+        System.out.println("Grade : D"); 
+        else if(avgper>=40) 
+        System.out.println("Grade : E");
+        else
+        System.out.println("Grade : F");
+    }
+}
