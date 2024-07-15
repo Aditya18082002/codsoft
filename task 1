@@ -1,0 +1,31 @@
+import java.util.*;
+
+public class task1 {
+    public static void main(String[] args) {
+        Random Ran=new Random();
+        int num=Ran.nextInt(101);
+        System.out.println("You have three attempts to guess the Random Number");
+         Scanner scan=new Scanner(System.in);
+        for(int i=1; i<=3; i++)
+        {
+        System.out.println("Enter the Random Number within the range of 0 to 100 'Attempt':"+i);
+       
+        int n=scan.nextInt();
+        
+        if(n==num)
+        {
+            System.out.println("Congratulation!! You guessed the correct Random Number");
+             break;
+        }
+        else if(n>num)
+        {
+           System.out.println("Number is too high"); 
+        }
+        else if (n<num)
+        {
+            System.out.println("Number is too low");
+        }
+        }
+        scan.close();
+    }
+}
