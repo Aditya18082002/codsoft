@@ -1,0 +1,70 @@
+import java.util.*;
+public class task3 {
+    public static void main(String[] args) {
+        double amt;
+        BankAccount x=new BankAccount(2000);
+        while (true) {
+    System.out.println("Select the operation that you want to be perfomed");
+    System.out.println("1. Withdraw");
+    System.out.println("2. Deposit");
+    System.out.println("3. Check Balance");
+    System.out.println("4. Exit");
+    Scanner var=new Scanner(System.in);
+    int option=var.nextInt();
+    switch (option) {
+        case 1:
+            System.out.println("Enter the amount you want to withdraw Rs:");
+            amt=var.nextDouble();
+            boolean withdrawsucces=x.withdraw(amt);
+            if(withdrawsucces){
+                System.out.println("Withdrawl of Rs"+amt+"is successfully done.");
+            }
+            else
+             {
+                System.out.println("Insufficient Balance.");
+             }
+            break;
+        case 2:
+             System.out.println("Enter the amount you want to deposit Rs:");
+             amt=var.nextDouble();
+             x.deposit(amt);
+             System.out.println("Amount of Rs:"+amt+" deposited successfully.");
+             break;
+        case 3:
+             double b=x.checkbalance();
+             System.out.println("Account balance is Rs:"+b);
+             break;
+        case 4:
+             System.out.println("Thanks for using ATM.");
+             System.exit(0);
+             var.close();
+        
+        default:
+             System.out.println("Invalid option.");
+    }
+    }
+}
+}
+class BankAccount{
+    private double balance;
+    public BankAccount(double initialbalance)
+    {
+        balance=initialbalance;
+    }
+    public boolean withdraw(double amount)
+    {
+        if(amount<=balance){
+        balance=balance-amount;
+        return true;
+        }
+        else
+        return false;
+    }
+    public void deposit(double amount)
+    {
+        balance=balance+amount;
+    }
+    public double checkbalance(){
+        return balance;
+    }
+}
